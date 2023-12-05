@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service MetaData {
+  rpc Echo(Record) returns (Record) {};
+
+  rpc EchoN(NRecordReq) returns (stream Record);
+
+  rpc EchoEcho(stream Record) returns (stream Record);
+}
+
+message NRecordReq { int32 n = 1; }
+
+message Record { string value = 1; }
