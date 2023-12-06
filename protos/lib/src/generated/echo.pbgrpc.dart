@@ -15,24 +15,24 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'echo.pb.dart' as $0;
+import 'echo.pb.dart' as $1;
 
 export 'echo.pb.dart';
 
 @$pb.GrpcServiceName('MetaData')
 class MetaDataClient extends $grpc.Client {
-  static final _$echo = $grpc.ClientMethod<$0.Record, $0.Record>(
+  static final _$echo = $grpc.ClientMethod<$1.Record, $1.Record>(
       '/MetaData/Echo',
-      ($0.Record value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.Record.fromBuffer(value));
-  static final _$echoN = $grpc.ClientMethod<$0.NRecordReq, $0.Record>(
+      ($1.Record value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Record.fromBuffer(value));
+  static final _$echoN = $grpc.ClientMethod<$1.NRecordReq, $1.Record>(
       '/MetaData/EchoN',
-      ($0.NRecordReq value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.Record.fromBuffer(value));
-  static final _$echoEcho = $grpc.ClientMethod<$0.Record, $0.Record>(
+      ($1.NRecordReq value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Record.fromBuffer(value));
+  static final _$echoEcho = $grpc.ClientMethod<$1.Record, $1.Record>(
       '/MetaData/EchoEcho',
-      ($0.Record value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.Record.fromBuffer(value));
+      ($1.Record value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Record.fromBuffer(value));
 
   MetaDataClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -40,15 +40,15 @@ class MetaDataClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.Record> echo($0.Record request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Record> echo($1.Record request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$echo, request, options: options);
   }
 
-  $grpc.ResponseStream<$0.Record> echoN($0.NRecordReq request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseStream<$1.Record> echoN($1.NRecordReq request, {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$echoN, $async.Stream.fromIterable([request]), options: options);
   }
 
-  $grpc.ResponseStream<$0.Record> echoEcho($async.Stream<$0.Record> request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseStream<$1.Record> echoEcho($async.Stream<$1.Record> request, {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$echoEcho, request, options: options);
   }
 }
@@ -58,38 +58,38 @@ abstract class MetaDataServiceBase extends $grpc.Service {
   $core.String get $name => 'MetaData';
 
   MetaDataServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.Record, $0.Record>(
+    $addMethod($grpc.ServiceMethod<$1.Record, $1.Record>(
         'Echo',
         echo_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.Record.fromBuffer(value),
-        ($0.Record value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.NRecordReq, $0.Record>(
+        ($core.List<$core.int> value) => $1.Record.fromBuffer(value),
+        ($1.Record value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.NRecordReq, $1.Record>(
         'EchoN',
         echoN_Pre,
         false,
         true,
-        ($core.List<$core.int> value) => $0.NRecordReq.fromBuffer(value),
-        ($0.Record value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Record, $0.Record>(
+        ($core.List<$core.int> value) => $1.NRecordReq.fromBuffer(value),
+        ($1.Record value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.Record, $1.Record>(
         'EchoEcho',
         echoEcho,
         true,
         true,
-        ($core.List<$core.int> value) => $0.Record.fromBuffer(value),
-        ($0.Record value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $1.Record.fromBuffer(value),
+        ($1.Record value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.Record> echo_Pre($grpc.ServiceCall call, $async.Future<$0.Record> request) async {
+  $async.Future<$1.Record> echo_Pre($grpc.ServiceCall call, $async.Future<$1.Record> request) async {
     return echo(call, await request);
   }
 
-  $async.Stream<$0.Record> echoN_Pre($grpc.ServiceCall call, $async.Future<$0.NRecordReq> request) async* {
+  $async.Stream<$1.Record> echoN_Pre($grpc.ServiceCall call, $async.Future<$1.NRecordReq> request) async* {
     yield* echoN(call, await request);
   }
 
-  $async.Future<$0.Record> echo($grpc.ServiceCall call, $0.Record request);
-  $async.Stream<$0.Record> echoN($grpc.ServiceCall call, $0.NRecordReq request);
-  $async.Stream<$0.Record> echoEcho($grpc.ServiceCall call, $async.Stream<$0.Record> request);
+  $async.Future<$1.Record> echo($grpc.ServiceCall call, $1.Record request);
+  $async.Stream<$1.Record> echoN($grpc.ServiceCall call, $1.NRecordReq request);
+  $async.Stream<$1.Record> echoEcho($grpc.ServiceCall call, $async.Stream<$1.Record> request);
 }

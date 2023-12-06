@@ -3,11 +3,15 @@ import 'dart:io';
 
 import 'package:protos/protos.dart';
 
+import 'cal_service.dart';
 import 'meta_service.dart';
 
 void main(List<String> arguments) async {
   final server = Server.create(
-    services: [MetaDataService()],
+    services: [
+      MetaDataService(),
+      CalService(),
+    ],
     errorHandler: (e, st) {
       log('Error', error: e, stackTrace: st);
     },
